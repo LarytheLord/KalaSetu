@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { MapPin, Star, Mail, Phone, Award, Calendar, Heart, Share2 } from "lucide-react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -33,8 +33,48 @@ const mockArtisan = {
   ],
 }
 
-export default function ArtisanProfilePage() {
-  const [selectedImage, setSelectedImage] = useState(null)
+export default function ArtisanProfilePage({ params }: { params: { id: string } }) {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isLoadingProfile, setIsLoadingProfile] = useState(true);
+  const [artisan, setArtisan] = useState<typeof mockArtisan | null>(null);
+
+  useEffect(() => {
+    setIsLoadingProfile(true);
+    // Simulate fetching artisan data
+    const timer = setTimeout(() => {
+      // In a real app, you would fetch data based on params.id
+      // For this mock, we'll just use mockArtisan if the id matches, or null otherwise
+      // This part will be enhanced later for error handling if artisan not found
+      if (params.id === String(mockArtisan.id)) {
+        setArtisan(mockArtisan);
+      } else {
+        setArtisan(null);
+      }
+      setIsLoadingProfile(false);
+    }, 200); // Simulate 200ms delay
+
+    if (isLoadingProfile) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-teal-50">
+        <p className="text-xl text-gray-700">Loading profile...</p>
+      </div>
+    );
+  }
+
+  // Later, we will add a check here: if (!artisan && !isLoadingProfile) { return <p>Artisan not found.</p>; }
+
+  return () => clearTimeout(timer);
+  }, [params.id]);
+
+  if (isLoadingProfile) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-teal-50">
+        <p className="text-xl text-gray-700">Loading profile...</p>
+      </div>
+    );
+  }
+
+  // Later, we will add a check here: if (!artisan && !isLoadingProfile) { return <p>Artisan not found.</p>; }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-teal-50">
@@ -45,7 +85,7 @@ export default function ArtisanProfilePage() {
       <div className="relative">
         <div className="h-64 sm:h-80 bg-gradient-to-r from-orange-400 to-teal-500 relative overflow-hidden">
           <img
-            src={mockArtisan.coverImage || "/placeholder.svg"}
+            src={artisan?.coverImage || "/placeholder.svg"}
             alt="Artisan workspace"
             className="w-full h-full object-cover opacity-30"
           />
@@ -58,8 +98,8 @@ export default function ArtisanProfilePage() {
               <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
                 <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden border-4 border-white shadow-lg">
                   <img
-                    src={mockArtisan.profileImage || "/placeholder.svg"}
-                    alt={mockArtisan.name}
+                    src={artisan?.profileImage || "/placeholder.svg"}
+                    alt={artisan?.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -67,21 +107,21 @@ export default function ArtisanProfilePage() {
                 <div className="flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
                     <div>
-                      <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">{mockArtisan.name}</h1>
-                      <p className="text-xl text-orange-600 font-medium mb-2">{mockArtisan.specialty}</p>
+                      <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">{artisan?.name}</h1>
+                      <p className="text-xl text-orange-600 font-medium mb-2">{artisan?.specialty}</p>
                       <div className="flex items-center text-gray-600 mb-4">
                         <MapPin className="w-5 h-5 mr-2" />
-                        <span>{mockArtisan.location}</span>
+                        <span>{artisan?.location}</span>
                       </div>
                       <div className="flex items-center space-x-4 mb-4">
                         <div className="flex items-center space-x-1">
                           <Star className="w-5 h-5 text-yellow-500 fill-current" />
-                          <span className="font-medium">{mockArtisan.rating}</span>
-                          <span className="text-gray-500">({mockArtisan.reviewCount} reviews)</span>
+                          <span className="font-medium">{artisan?.rating}</span>
+                          <span className="text-gray-500">({artisan?.reviewCount} reviews)</span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <Calendar className="w-5 h-5 text-gray-400" />
-                          <span className="text-gray-600">{mockArtisan.experience} experience</span>
+                          <span className="text-gray-600">{artisan?.experience} experience</span>
                         </div>
                       </div>
                     </div>
@@ -114,13 +154,13 @@ export default function ArtisanProfilePage() {
             {/* Bio Section */}
             <div className="bg-white rounded-2xl p-8 shadow-md">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Heritage, Our Hands</h2>
-              <p className="text-gray-600 leading-relaxed text-lg mb-6">{mockArtisan.bio}</p>
+              <p className="text-gray-600 leading-relaxed text-lg mb-6">{artisan?.bio}</p>
 
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-3">Specialties</h3>
                   <ul className="space-y-2">
-                    {mockArtisan.specialties.map((specialty, index) => (
+                    {artisan?.specialties.map((specialty, index) => (
                       <li key={index} className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                         <span className="text-gray-600">{specialty}</span>
@@ -132,7 +172,7 @@ export default function ArtisanProfilePage() {
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-3">Achievements</h3>
                   <ul className="space-y-2">
-                    {mockArtisan.achievements.map((achievement, index) => (
+                    {artisan?.achievements.map((achievement, index) => (
                       <li key={index} className="flex items-start space-x-2">
                         <Award className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                         <span className="text-gray-600 text-sm">{achievement}</span>
@@ -147,7 +187,7 @@ export default function ArtisanProfilePage() {
             <div className="bg-white rounded-2xl p-8 shadow-md">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Their Masterpieces</h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {mockArtisan.gallery.map((item) => (
+                {artisan?.gallery.map((item) => (
                   <div key={item.id} className="group cursor-pointer" onClick={() => setSelectedImage(item)}>
                     <div className="aspect-square bg-gray-200 rounded-xl overflow-hidden mb-3 group-hover:shadow-lg transition-shadow duration-200">
                       <img

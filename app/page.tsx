@@ -3,19 +3,19 @@
 import { useState } from "react"
 import { Palette, Users, MapPin, ExternalLink, Play, Sparkles } from "lucide-react"
 import Link from "next/link"
-import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { AIRecognition } from "@/components/ai-recognition"
 
+// Main landing page component for KalaSetu
 export default function KalaSetuLanding() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  // State to manage the mobile menu visibility (currently seems unused in this snippet but good for future use)
+;
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-teal-50">
-      {/* Navigation */}
-      <Navbar />
 
-      {/* Hero Section */}
+      {/* Hero Section: Introduces the platform and its main call-to-actions */}
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
           <div className="text-center">
@@ -50,7 +50,7 @@ export default function KalaSetuLanding() {
         <div className="absolute bottom-20 right-10 w-32 h-32 bg-teal-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
       </section>
 
-      {/* Features Section */}
+      {/* Features Section: Highlights the key functionalities of KalaSetu */}
       <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -97,10 +97,10 @@ export default function KalaSetuLanding() {
         </div>
       </section>
 
-      {/* AI Recognition Section */}
+      {/* AI Recognition Section: Embeds the AI art recognition component for users to try */}
       <AIRecognition />
 
-      {/* Problem Solved Section */}
+      {/* Problem Solved Section: Explains the core problem KalaSetu addresses */}
       <section className="py-20 bg-gradient-to-r from-orange-500 to-teal-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8">
@@ -119,7 +119,7 @@ export default function KalaSetuLanding() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section: Final call to action, encouraging users to explore further */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">

@@ -23,12 +23,12 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="#features"
+            <Link
+              href="/#features"
               className="text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"
             >
               Features
-            </a>
+            </Link>
             <Link
               href="/artisans"
               className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-lg font-medium hover:from-orange-600 hover:to-orange-700 transform hover:scale-105 transition-all duration-200 shadow-md"
@@ -42,7 +42,9 @@ export function Navbar() {
               Team
             </Link>
             <a
-              href="#"
+              href="https://github.com/yourusername/kalasetu"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center space-x-1 text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"
             >
               <Github className="w-4 h-4" />
@@ -54,50 +56,51 @@ export function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-orange-600 transition-colors duration-200"
+              className="text-gray-700 hover:text-orange-600 focus:outline-none"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-orange-100">
-            <div className="flex flex-col space-y-3">
-              <a
-                href="#features"
-                className="text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Features
-              </a>
-              <Link
-                href="/artisans"
-                className="text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Explore Artisans
-              </Link>
-              <Link
-                href="/team"
-                className="text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Team
-              </Link>
-              <a
-                href="#"
-                className="flex items-center space-x-1 text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <Github className="w-4 h-4" />
-                <span>GitHub</span>
-              </a>
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t border-orange-100 py-4 px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col space-y-4">
+            <Link
+              href="/#features"
+              className="text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Features
+            </Link>
+            <Link
+              href="/artisans"
+              className="text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Explore Artisans
+            </Link>
+            <Link
+              href="/team"
+              className="text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Team
+            </Link>
+            <a
+              href="https://github.com/yourusername/kalasetu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-1 text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"
+            >
+              <Github className="w-4 h-4" />
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   )
 }

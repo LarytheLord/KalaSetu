@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react";
 import { Github, Linkedin, Mail, Code, Palette, Brain, Rocket } from "lucide-react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -67,6 +68,31 @@ const roleIcons = {
 }
 
 export default function TeamPage() {
+  const [isLoadingTeam, setIsLoadingTeam] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoadingTeam(false);
+    }, 100); // Simulate 100ms delay
+
+    if (isLoadingTeam) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-teal-50">
+        <p className="text-xl text-gray-700">Loading team...</p>
+      </div>
+    );
+  }
+
+  return () => clearTimeout(timer);
+  }, []);
+  if (isLoadingTeam) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-teal-50">
+        <p className="text-xl text-gray-700">Loading team...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-teal-50">
       <Navbar />
@@ -96,7 +122,15 @@ export default function TeamPage() {
           {teamMembers.map((member) => {
             const IconComponent = roleIcons[member.role as keyof typeof roleIcons]
 
-            return (
+            if (isLoadingTeam) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-teal-50">
+        <p className="text-xl text-gray-700">Loading team...</p>
+      </div>
+    );
+  }
+
+  return (
               <div
                 key={member.id}
                 className="bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"

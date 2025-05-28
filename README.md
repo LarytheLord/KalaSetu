@@ -1,30 +1,96 @@
-# KalaSetu Landing Page
+# KalaSetu
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+## Tagline
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/larythelords-projects/v0-kala-setu-landing-page)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/2HT2vDuNW6s)
+*Connecting Artisans with Art Lovers, Powered by AI.*
 
-## Overview
+## Problem It Solves
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+KalaSetu aims to bridge the gap between traditional artisans and a wider audience by providing a platform for discovery, appreciation, and connection. It addresses the challenges artisans face in showcasing their work and reaching potential customers in the digital age.
 
-## Deployment
+## Current State & Hackathon Scope
 
-Your project is live at:
+For this hackathon, KalaSetu has been developed as a fully client-side React application to demonstrate the core user experience and features.
 
-**[https://vercel.com/larythelords-projects/v0-kala-setu-landing-page](https://vercel.com/larythelords-projects/v0-kala-setu-landing-page)**
+- All data (artisans, team members, AI analysis results) is mocked within the frontend application for demonstration purposes.
+- The focus was on rapidly prototyping the UI/UX, interactive elements, and the conceptual flow of the application.
 
-## Build your app
+## Features Implemented (Client-Side)
 
-Continue building your app on:
+- **Landing Page:** Engaging introduction to KalaSetu.
+- **Artisan Discovery:** Browse and filter a list of mock artisans.
+- **Artisan Profiles:** View detailed profiles of mock artisans.
+- **AI Art Recognition (Simulated):** Upload an image and receive a simulated AI analysis of the art style/form.
+- **Team Page:** Information about the project team.
+- **Responsive Design:** Adapts to various screen sizes.
 
-**[https://v0.dev/chat/projects/2HT2vDuNW6s](https://v0.dev/chat/projects/2HT2vDuNW6s)**
+## Technologies Used
 
-## How It Works
+- React
+- Next.js (as a React framework)
+- Tailwind CSS
+- TypeScript
+- Shadcn/ui (for UI components)
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Hypothetical Backend & Storage (Future Scope)
+
+If this project were to be developed further, a robust backend and database would be essential.
+
+-   **Backend:** A Node.js/Express.js or Python/FastAPI backend could handle API requests, business logic, and interactions with the database and AI services.
+-   **Database:** A NoSQL database like MongoDB would be suitable for storing flexible artisan profiles, artwork details, and user information. Alternatively, a relational database like PostgreSQL could also be used depending on the data modeling needs.
+-   **AI Model Integration:** The AI Art Recognition feature would connect to a dedicated AI model service. This could be a custom-trained model deployed via TensorFlow Serving/PyTorch Serve, or a cloud AI service like Google Cloud Vision AI or Azure Custom Vision.
+-   **Image Storage:** User-uploaded images (for AI recognition) and artisan artwork images would be stored in a cloud storage solution like AWS S3, Google Cloud Storage, or Azure Blob Storage for scalability and reliability.
+-   **User Authentication:** For artisan logins (to manage profiles) and user accounts (for features like saving favorites or contacting artisans), authentication (e.g., JWT-based or OAuth) would be implemented.
+
+## How to Run Locally (Current Client-Side App)
+
+1.  Clone the repository:
+    ```bash
+    git clone <repository-url>
+    ```
+2.  Navigate to the project directory:
+    ```bash
+    cd KalaSetu
+    ```
+3.  Install dependencies (using pnpm, npm, or yarn):
+    ```bash
+    pnpm install
+    # or
+    # npm install
+    # or
+    # yarn install
+    ```
+4.  Run the development server:
+    ```bash
+    pnpm dev
+    # or
+    # npm run dev
+    # or
+    # yarn dev
+    ```
+5.  Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## (Optional) Demo Video Link
+
+*[Link to your demo video will go here]*
+
+## (Optional) Live Demo Link
+
+*[Link to your live deployment (e.g., Vercel, Netlify) will go here]*
+
+## Challenges Faced (Client-Side Focus)
+
+-   Simulating complex backend interactions (like AI analysis and database queries) purely on the client-side while maintaining a good user experience.
+-   Managing application state effectively for features like filtering and dynamic content display without a backend.
+-   Ensuring a consistent and responsive UI across different components and screen sizes.
+
+## Future Scope (Beyond Backend)
+
+-   **Real-time Chat with Artisans:** Allow users to communicate directly with artisans.
+-   **E-commerce Integration:** Enable artisans to sell their products through the platform.
+-   **User Accounts & Personalization:** Features like saving favorite artisans, personalized recommendations.
+-   **Community Features:** Forums or groups for art enthusiasts and artisans.
+-   **Workshop/Event Listings:** Artisans can list workshops or events they are hosting.
+
+---
+*This README was enhanced with the assistance of an AI Pair Programmer.*

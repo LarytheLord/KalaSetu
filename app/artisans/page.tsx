@@ -70,26 +70,42 @@ const mockArtisans = [
   },
 ]
 
-const artForms = ["All", "Patola", "Bandhani", "Embroidery", "Wood Carving", "Block Printing", "Pottery"]
+// const artForms = ["All", "Patola", "Bandhani", "Embroidery", "Wood Carving", "Block Printing", "Pottery"] // This will be dynamically generated
 const regions = ["All Regions", "Kutch", "Patan", "Ahmedabad", "Saurashtra", "Pethapur"]
 
 export default function ArtisansPage() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [selectedArtForm, setSelectedArtForm] = useState("All")
-  const [selectedRegion, setSelectedRegion] = useState("All Regions")
-  const [showFilters, setShowFilters] = useState(false)
+  // State for the search term input by the user
+  const [searchTerm, setSearchTerm] = useState("");
+  // State for the selected art form filter
+  const [selectedArtForm, setSelectedArtForm] = useState(""); // Default to empty string for "All Art Forms"
+  // State for the selected region filter
+  const [selectedRegion, setSelectedRegion] = useState("All Regions");
+  // State to toggle the visibility of filter options
+  const [showFilters, setShowFilters] = useState(false);
 
+  // Dynamically generate a unique, sorted list of art forms from the mock artisan data
+  // This ensures the filter dropdown always reflects the available art forms
+  const uniqueArtForms = Array.from(new Set(mockArtisans.map(artisan => artisan.artForm))).sort();
+
+  // Filter the artisans based on the current search term and selected filters
   const filteredArtisans = mockArtisans.filter((artisan) => {
+    // Check if artisan's name, specialty, or location includes the search term (case-insensitive)
     const matchesSearch =
       artisan.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       artisan.specialty.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      artisan.location.toLowerCase().includes(searchTerm.toLowerCase())
+      artisan.location.toLowerCase().includes(searchTerm.toLowerCase());
 
-    const matchesArtForm = selectedArtForm === "All" || artisan.artForm === selectedArtForm
-    const matchesRegion = selectedRegion === "All Regions" || artisan.location.includes(selectedRegion)
+    // Check if the artisan's art form matches the selected filter, or if "All Art Forms" is selected
+    const matchesArtForm = selectedArtForm === "" || artisan.artForm === selectedArtForm; // Updated to check for empty string
+    // Check if the artisan's location includes the selected region, or if "All Regions" is selected
+    const matchesRegion = selectedRegion === "All Regions" || artisan.location.includes(selectedRegion);
 
-    return matchesSearch && matchesArtForm && matchesRegion
-  })
+    // Artisan is included if all conditions are met
+    return matchesSearch && matchesArtForm && matchesRegion;
+  });
+
+  return (
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-teal-50">
@@ -145,7 +161,8 @@ export default function ArtisansPage() {
                     onChange={(e) => setSelectedArtForm(e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                   >
-                    {artForms.map((form) => (
+                    <option value="">All Art Forms</option>
+                    {uniqueArtForms.map((form) => (
                       <option key={form} value={form}>
                         {form}
                       </option>
