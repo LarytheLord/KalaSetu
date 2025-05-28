@@ -17,7 +17,7 @@ export function Navbar() {
               <Palette className="w-5 h-5 text-white" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-orange-600 to-teal-600 bg-clip-text text-transparent">
-              KalaSetu
+              ArtisanBeacon AI
             </span>
           </Link>
 
@@ -42,7 +42,7 @@ export function Navbar() {
               Team
             </Link>
             <a
-              href="https://github.com/yourusername/kalasetu"
+              href="https://github.com/yourusername/artisanbeaconai"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-1 text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"
@@ -90,7 +90,7 @@ export function Navbar() {
               Team
             </Link>
             <a
-              href="https://github.com/yourusername/kalasetu"
+              href="https://github.com/yourusername/artisanbeaconai"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-1 text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"

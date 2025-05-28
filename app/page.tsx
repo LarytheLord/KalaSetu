@@ -6,8 +6,8 @@ import Link from "next/link"
 import { Footer } from "@/components/footer"
 import { AIRecognition } from "@/components/ai-recognition"
 
-// Main landing page component for KalaSetu
-export default function KalaSetuLanding() {
+// Main landing page component for ArtisanBeacon AI
+export default function ArtisanBeaconAILanding() {
   // State to manage the mobile menu visibility (currently seems unused in this snippet but good for future use)
 ;
 
@@ -50,11 +50,11 @@ export default function KalaSetuLanding() {
         <div className="absolute bottom-20 right-10 w-32 h-32 bg-teal-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
       </section>
 
-      {/* Features Section: Highlights the key functionalities of KalaSetu */}
+      {/* Features Section: Highlights the key functionalities of ArtisanBeacon AI */}
       <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">What Makes KalaSetu Awesome?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">What Makes ArtisanBeacon AI Awesome?</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Bridging the gap between traditional craftsmanship and modern technology
             </p>
@@ -100,7 +100,7 @@ export default function KalaSetuLanding() {
       {/* AI Recognition Section: Embeds the AI art recognition component for users to try */}
       <AIRecognition />
 
-      {/* Problem Solved Section: Explains the core problem KalaSetu addresses */}
+      {/* Problem Solved Section: Explains the core problem ArtisanBeacon AI addresses */}
       <section className="py-20 bg-gradient-to-r from-orange-500 to-teal-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8">
@@ -108,7 +108,7 @@ export default function KalaSetuLanding() {
           </h2>
           <p className="text-xl text-orange-100 max-w-4xl mx-auto leading-relaxed mb-8">
             Many talented Gujarati artisans struggle with visibility, while buyers find it hard to discover authentic
-            local crafts. KalaSetu uses AI to connect them directly, promoting cultural heritage and economic
+            local crafts. ArtisanBeacon AI uses AI to connect them directly, promoting cultural heritage and economic
             empowerment for these skilled individuals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
-  title: 'KalaSetu - Discover Gujarat\'s Artisanal Soul',
+  title: 'ArtisanBeacon AI - Discover Gujarat\'s Artisanal Soul',
   description: 'Connecting art lovers with Gujarat\'s hidden artisans through the power of AI',
 }
 

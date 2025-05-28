@@ -1,4 +1,4 @@
-# KalaSetu
+# ArtisanBeacon AI
 
 ## Tagline
 
@@ -6,18 +6,18 @@
 
 ## Problem It Solves
 
-KalaSetu aims to bridge the gap between traditional artisans and a wider audience by providing a platform for discovery, appreciation, and connection. It addresses the challenges artisans face in showcasing their work and reaching potential customers in the digital age.
+ArtisanBeacon AI aims to bridge the gap between traditional artisans and a wider audience by providing a platform for discovery, appreciation, and connection. It addresses the challenges artisans face in showcasing their work and reaching potential customers in the digital age.
 
 ## Current State & Hackathon Scope
 
-For this hackathon, KalaSetu has been developed as a fully client-side React application to demonstrate the core user experience and features.
+For this hackathon, ArtisanBeacon AI has been developed as a fully client-side React application to demonstrate the core user experience and features.
 
 - All data (artisans, team members, AI analysis results) is mocked within the frontend application for demonstration purposes.
 - The focus was on rapidly prototyping the UI/UX, interactive elements, and the conceptual flow of the application.
 
 ## Features Implemented (Client-Side)
 
-- **Landing Page:** Engaging introduction to KalaSetu.
+- **Landing Page:** Engaging introduction to ArtisanBeacon AI.
 - **Artisan Discovery:** Browse and filter a list of mock artisans.
 - **Artisan Profiles:** View detailed profiles of mock artisans.
 - **AI Art Recognition (Simulated):** Upload an image and receive a simulated AI analysis of the art style/form.
@@ -50,7 +50,7 @@ If this project were to be developed further, a robust backend and database woul
     ```
 2.  Navigate to the project directory:
     ```bash
-    cd KalaSetu
+    cd ArtisanBeacon AI
     ```
 3.  Install dependencies (using pnpm, npm, or yarn):
     ```bash

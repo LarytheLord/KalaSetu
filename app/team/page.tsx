@@ -16,7 +16,7 @@ const teamMembers = [
     social: {
       github: "#",
       linkedin: "#",
-      email: "arjun@kalasetu.com",
+      email: "arjun@artisanbeaconai.com",
     },
   },
   {
@@ -29,33 +29,33 @@ const teamMembers = [
     social: {
       github: "#",
       linkedin: "#",
-      email: "priya@kalasetu.com",
+      email: "priya@artisanbeaconai.com",
     },
   },
   {
     id: 3,
     name: "Karan Modi",
     role: "AI Specialist & Computer Vision Engineer",
-    bio: "Machine learning engineer focused on computer vision and pattern recognition. Developing the AI models that power KalaSetu's art recognition capabilities.",
+    bio: "Machine learning engineer focused on computer vision and pattern recognition. Developing the AI models that power ArtisanBeacon AI's art recognition capabilities.",
     image: "/placeholder.svg?height=200&width=200",
     skills: ["Python", "TensorFlow", "Computer Vision", "Deep Learning"],
     social: {
       github: "#",
       linkedin: "#",
-      email: "karan@kalasetu.com",
+      email: "karan@artisanbeaconai.com",
     },
   },
   {
     id: 4,
     name: "Ravi Joshi",
     role: "Product Manager & Strategy Lead",
-    bio: "Product strategist with experience in cultural preservation initiatives. Ensures KalaSetu serves both artisans and art enthusiasts effectively.",
+    bio: "Product strategist with experience in cultural preservation initiatives. Ensures ArtisanBeacon AI serves both artisans and art enthusiasts effectively.",
     image: "/placeholder.svg?height=200&width=200",
     skills: ["Product Strategy", "Market Research", "Stakeholder Management", "Analytics"],
     social: {
       github: "#",
       linkedin: "#",
-      email: "ravi@kalasetu.com",
+      email: "ravi@artisanbeaconai.com",
     },
   },
 ]
@@ -106,7 +106,7 @@ export default function TeamPage() {
               <span className="bg-gradient-to-r from-orange-600 to-teal-600 bg-clip-text text-transparent">
                 Innovators
               </span>{" "}
-              Behind KalaSetu
+              Behind ArtisanBeacon AI
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               A passionate team of technologists, designers, and cultural enthusiasts united by our mission to preserve
@@ -205,7 +205,7 @@ export default function TeamPage() {
           <div className="bg-gradient-to-r from-orange-500 to-teal-600 rounded-3xl p-12 text-white">
             <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
             <p className="text-xl leading-relaxed max-w-4xl mx-auto opacity-90">
-              "We believe that technology should serve as a bridge between tradition and innovation. Through KalaSetu,
+              "We believe that technology should serve as a bridge between tradition and innovation. Through ArtisanBeacon AI,
               we're not just building an app – we're creating a digital ecosystem that empowers artisans, educates art
               lovers, and ensures that Gujarat's magnificent craft traditions continue to thrive in the digital age."
             </p>
