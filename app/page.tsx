@@ -1,7 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { Menu, X, Palette, Users, MapPin, Github, ExternalLink, Play } from "lucide-react"
+import { Palette, Users, MapPin, ExternalLink, Play, Sparkles } from "lucide-react"
+import Link from "next/link"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { AIRecognition } from "@/components/ai-recognition"
 
 export default function KalaSetuLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -9,75 +13,7 @@ export default function KalaSetuLanding() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-teal-50">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-orange-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-teal-600 rounded-lg flex items-center justify-center">
-                <Palette className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-orange-600 to-teal-600 bg-clip-text text-transparent">
-                KalaSetu
-              </span>
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-700 hover:text-orange-600 transition-colors duration-200">
-                Features
-              </a>
-              <a href="#demo" className="text-gray-700 hover:text-orange-600 transition-colors duration-200">
-                Demo
-              </a>
-              <a href="#team" className="text-gray-700 hover:text-orange-600 transition-colors duration-200">
-                Team
-              </a>
-              <a
-                href="#"
-                className="flex items-center space-x-1 text-gray-700 hover:text-orange-600 transition-colors duration-200"
-              >
-                <Github className="w-4 h-4" />
-                <span>GitHub</span>
-              </a>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-orange-600 transition-colors duration-200"
-              >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-orange-100">
-              <div className="flex flex-col space-y-3">
-                <a href="#features" className="text-gray-700 hover:text-orange-600 transition-colors duration-200">
-                  Features
-                </a>
-                <a href="#demo" className="text-gray-700 hover:text-orange-600 transition-colors duration-200">
-                  Demo
-                </a>
-                <a href="#team" className="text-gray-700 hover:text-orange-600 transition-colors duration-200">
-                  Team
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center space-x-1 text-gray-700 hover:text-orange-600 transition-colors duration-200"
-                >
-                  <Github className="w-4 h-4" />
-                  <span>GitHub</span>
-                </a>
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
@@ -93,12 +29,17 @@ export default function KalaSetuLanding() {
               Connecting art lovers with Gujarat's hidden artisans through the power of AI
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-orange-600 hover:to-orange-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
-                Explore Art
-              </button>
-              <button className="flex items-center space-x-2 text-gray-700 hover:text-orange-600 transition-colors duration-200 px-8 py-4 border border-gray-300 rounded-xl hover:border-orange-300">
-                <Github className="w-5 h-5" />
-                <span className="font-semibold">View on GitHub</span>
+              <Link href="/artisans">
+                <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-orange-600 hover:to-orange-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
+                  Explore Art
+                </button>
+              </Link>
+              <button
+                onClick={() => document.getElementById("ai-recognition")?.scrollIntoView({ behavior: "smooth" })}
+                className="flex items-center space-x-2 text-gray-700 hover:text-orange-600 transition-colors duration-200 px-8 py-4 border border-gray-300 rounded-xl hover:border-orange-300"
+              >
+                <Sparkles className="w-5 h-5" />
+                <span className="font-semibold">Try AI Recognition</span>
               </button>
             </div>
           </div>
@@ -156,6 +97,9 @@ export default function KalaSetuLanding() {
         </div>
       </section>
 
+      {/* AI Recognition Section */}
+      <AIRecognition />
+
       {/* Problem Solved Section */}
       <section className="py-20 bg-gradient-to-r from-orange-500 to-teal-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -195,26 +139,7 @@ export default function KalaSetuLanding() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-teal-600 rounded-lg flex items-center justify-center">
-                <Palette className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold">KalaSetu</span>
-            </div>
-            <div className="text-center md:text-right">
-              <p className="text-gray-400 mb-2">© 2025 KalaSetu. Built for Hack With Gujarat.</p>
-              <div className="flex justify-center md:justify-end space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                  <Github className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
