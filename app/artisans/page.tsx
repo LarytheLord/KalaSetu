@@ -105,9 +105,6 @@ export default function ArtisansPage() {
   });
 
   return (
-
-
-  return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-teal-50">
       {/* Header Section */}
       <Navbar />
